@@ -1,6 +1,14 @@
 from rpi_ws281x import Adafruit_NeoPixel, Color
 
 
+class RGBColour:
+
+    def __init__(self, r, g, b):
+        self.red = r
+        self.green = g
+        self.blue = b
+
+
 class LedStrip:
 
     def __init__(self):
@@ -15,6 +23,10 @@ class LedStrip:
         self._strip = Adafruit_NeoPixel(self._LED_COUNT, self._LED_PIN, self._LED_FREQ_HZ, self._LED_DMA, self._LED_INVERT, self._LED_BRIGHTNESS)
         self._strip.begin()
         self.switchOffStrip()
+
+    def setPixelColour(self, position, colour: RGBColour):
+        self._strip.setPixelColor(position, Color(colour.red, colour.green, colour.blue))
+        self._strip.show()
 
     def setPixelColourRgb(self, position, red, green, blue):
         self._strip.setPixelColor(position, Color(red, green, blue))
@@ -31,3 +43,10 @@ class LedStrip:
         for n in range(0, self._LED_COUNT):
             self._strip.setPixelColor(n, Color(0, 0, 0))
         self._strip.show()
+
+    def numPixels(self):
+        return self._LED_COUNT
+
+    def show(self):
+        self._strip.show()
+
