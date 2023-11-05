@@ -49,7 +49,7 @@ def theaterChase(strip: LedStrip, colour: RGBColour, wait_ms=50, iterations=10):
             strip.show()
             time.sleep(wait_ms / 1000.0)
             for i in range(0, strip.numPixels(), 3):
-                strip.setPixelColour(i + q, RGBColour(255, 255, 255))
+                strip.setPixelColour(i + q, RGBColour(0, 0, 0))
 
 
 def theaterChaseRainbow(strip: LedStrip, wait_ms=50):
@@ -61,7 +61,7 @@ def theaterChaseRainbow(strip: LedStrip, wait_ms=50):
             strip.show()
             time.sleep(wait_ms / 1000.0)
             for i in range(0, strip.numPixels(), 3):
-                strip.setPixelColour(i + q, RGBColour(255, 255, 255))
+                strip.setPixelColour(i + q, RGBColour(0, 0, 0))
 
 
 # Main program logic follows:
